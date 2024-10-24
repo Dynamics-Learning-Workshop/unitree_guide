@@ -1,3 +1,8 @@
+# DEPENDENCIES
+install lcm # turn off python
+sudo apt install ros-noetic-move-base-msgs
+
+# original
 A more detailed unitree_guide document is available at unitree [developer site](https://support.unitree.com/home/zh/Algorithm_Practice).( only Chinese version now )
 
 # Overview

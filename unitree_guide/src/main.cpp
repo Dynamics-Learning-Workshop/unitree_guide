@@ -91,6 +91,8 @@ int main(int argc, char **argv)
     while (running)
     {
         ctrlFrame.run();
+        // printf('hi');
+        // std::cout<<"hi"<<std::endl;
     }
 
     delete ctrlComp;

@@ -51,6 +51,7 @@
     <!-- <node pkg="unitree_gazebo" type="servo" name="servo" required="true" output="screen"/> -->
 
     <!-- load the parameter unitree_controller -->
+    <!-- low end servo control signal receiving here -->
     <include file="$(find unitree_controller)/launch/set_ctrl.launch">
         <arg name="rname" value="$(arg rname)"/>
     </include>

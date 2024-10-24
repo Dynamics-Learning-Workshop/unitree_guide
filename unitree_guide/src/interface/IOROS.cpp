@@ -38,6 +38,7 @@ IOROS::~IOROS(){
 }
 
 void IOROS::sendRecv(const LowlevelCmd *cmd, LowlevelState *state){
+    // std::cout<<"hisdfsd"<<std::endl;
     sendCmd(cmd);
     recvState(state);
 
@@ -55,6 +56,8 @@ void IOROS::sendCmd(const LowlevelCmd *lowCmd){
         _lowCmd.motorCmd[i].Kp = lowCmd->motorCmd[i].Kp;
     }
     for(int m(0); m < 12; ++m){
+        // std::cout<<"why"<<m<<std::endl;
+        
         _servo_pub[m].publish(_lowCmd.motorCmd[m]);
     }
     ros::spinOnce();
@@ -88,6 +91,7 @@ void IOROS::initSend(){
     _servo_pub[9] = _nm.advertise<unitree_legged_msgs::MotorCmd>("/" + _robot_name + "_gazebo/RL_hip_controller/command", 1);
     _servo_pub[10] = _nm.advertise<unitree_legged_msgs::MotorCmd>("/" + _robot_name + "_gazebo/RL_thigh_controller/command", 1);
     _servo_pub[11] = _nm.advertise<unitree_legged_msgs::MotorCmd>("/" + _robot_name + "_gazebo/RL_calf_controller/command", 1);
+    std::cout<<"/" + _robot_name + "_gazebo/RL_calf_controller/command"<<std::endl;
 }
 
 void IOROS::initRecv(){
@@ -180,6 +184,7 @@ void IOROS::RRhipCallback(const unitree_legged_msgs::MotorState& msg)
 
 void IOROS::RRthighCallback(const unitree_legged_msgs::MotorState& msg)
 {
+    // std::cout<<"states here"<<std::endl;
     _lowState.motorState[7].mode = msg.mode;
     _lowState.motorState[7].q = msg.q;
     _lowState.motorState[7].dq = msg.dq;

@@ -35,6 +35,7 @@ void FSM::initialize(){
 void FSM::run(){
     _startTime = getSystemTime();
     _ctrlComp->sendRecv();
+    
     _ctrlComp->runWaveGen();
     _ctrlComp->estimator->run();
     if(!checkSafty()){
